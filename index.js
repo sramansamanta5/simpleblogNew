@@ -2,6 +2,7 @@ import express from 'express'
 import mongoose from 'mongoose';
 import cors from 'cors'
 import dotenv from 'dotenv'
+import blogRoutes from './routes/blogRoutes.js'
 
 dotenv.config();
 const app = express();
@@ -20,7 +21,10 @@ app.get('/',(req,res)=>{
     res.send('Home page running...')
 })
 
+app.use('/api/blogs',blogRoutes)
+
 
 app.listen(PORT,()=>{
     console.log(`Webapp is running on PORT ...`)
 })
+
